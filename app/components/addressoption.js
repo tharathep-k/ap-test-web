@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 import data1 from "../../public/provinces.json";
 import data2 from "../../public/districts.json";
 import data3 from "../../public/subdistricts.json";
@@ -21,10 +19,6 @@ export default function AddressOption({ name, placeholder, onChange, value, isIn
   // Error: fetch for over 2MB of data can not be cached
   // const res3 = await fetch("https://raw.githubusercontent.com/thailand-geography-data/thailand-geography-json/main/src/subdistricts.json");
   // const data3 = await res3.json();
-
-  // const [province, setProvince] = useState("---- เลือก ----");
-  // const [district, setDistrict] = useState("---- เลือก ----");
-  // const [subdistrict, setSubdistrict] = useState("---- เลือก ----");
 
   const text = isInvalid ? (
     <InputErrorMessage message={isInvalid} placeholder={placeholder} />

@@ -7,6 +7,8 @@ import Link from "next/link";
 import PaymentInput from "../components/paymentInput";
 import AddressOption from "../components/addressoption";
 import paymentRegister from "../validator/validate-payment";
+import { useDispatch } from "react-redux";
+import { createPayment } from "../redux/slice/payment-slice";
 
 const initialInput = {
   housenumber: "",
@@ -24,6 +26,8 @@ export default function Payment() {
   const [input, setInput] = useState(initialInput);
   const [error, setError] = useState(initialInput);
 
+  const dispatch = useDispatch()
+
   console.log(input);
   const onChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -31,14 +35,16 @@ export default function Payment() {
 
   const handleOnsubmit = (e) => {
     try {
-      console.log("click click");
       e.preventDefault();
       const result = paymentRegister(input);
-      // console.log(result);
+      console.dir(result)
       if (result) {
         return setError(result);
       }
       setError({});
+
+      dispatch(createPayment(input))
+
     } catch (error) {
     //   console.log(error);
       alert("Please fill");

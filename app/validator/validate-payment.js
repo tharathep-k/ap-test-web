@@ -31,7 +31,7 @@ const paymentSchema = Joi.object({
     .messages({
       "string.empty": "*",
     }),
-});
+}).unknown(true);
 
 export default function paymentRegister(input) {
   const { error } = paymentSchema.validate(input, { abortEarly: false });
