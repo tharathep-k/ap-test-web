@@ -1,4 +1,4 @@
-export default function SelectPage({ pageAt, setPageAt, allData }) {
+export default function SelectPage({ pageAt, setPageAt, filterData }) {
   const capacity = 5;
 
   const clickPageBack = () => {
@@ -8,7 +8,7 @@ export default function SelectPage({ pageAt, setPageAt, allData }) {
   };
 
   const clickNextPage = () => {
-    if (pageAt < allData.length / capacity) {
+    if (pageAt < filterData.length / capacity) {
       setPageAt(pageAt + 1);
     }
   };

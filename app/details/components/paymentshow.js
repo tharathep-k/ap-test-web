@@ -1,6 +1,6 @@
 import CardDetails from "./carddetails";
 
-export default function PaymentShow({ pageAt, allData }) {
+export default function PaymentShow({ pageAt, filterData }) {
   const capacity = 5;
 
   const startPage = (page, capacity) => page * capacity - capacity;
@@ -12,7 +12,7 @@ export default function PaymentShow({ pageAt, allData }) {
     return items.slice(start, end);
   };
 
-  const showAtPage = pagination(pageAt, capacity, allData);
+  const showAtPage = pagination(pageAt, capacity, filterData);
   const job = showAtPage.map((el) => <CardDetails data={el} key={el.id} />);
 
   return (
