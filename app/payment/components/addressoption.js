@@ -1,8 +1,8 @@
 "use client";
 
-import data1 from "../../public/provinces.json";
-import data2 from "../../public/districts.json";
-import data3 from "../../public/subdistricts.json";
+import data1 from "../../../public/provinces.json"
+import data2 from "../../../public/districts.json";
+import data3 from "../../../public/subdistricts.json";
 import InputErrorMessage from "./inputerrormessage";
 
 export default function AddressOption({ name, placeholder, onChange, value, isInvalid }) {

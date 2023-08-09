@@ -3,11 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-import PaymentInput from "../components/paymentInput";
-import AddressOption from "../components/addressoption";
-import paymentRegister from "../validator/validate-payment";
+import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
+
+import PaymentInput from "./components/paymentInput";
+import AddressOption from "./components/addressoption";
+import paymentRegister from "../validator/validate-payment";
 import { createPayment } from "../redux/slice/payment-slice";
 
 const initialInput = {
@@ -26,7 +27,8 @@ export default function Payment() {
   const [input, setInput] = useState(initialInput);
   const [error, setError] = useState(initialInput);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const router = useRouter();
 
   console.log(input);
   const onChangeInput = (e) => {
@@ -37,23 +39,25 @@ export default function Payment() {
     try {
       e.preventDefault();
       const result = paymentRegister(input);
-      console.dir(result)
+      console.dir(result);
       if (result) {
         return setError(result);
       }
       setError({});
 
-      dispatch(createPayment(input))
+      dispatch(createPayment(input));
+      alert("Success");
 
+      router.push("/details");
     } catch (error) {
-    //   console.log(error);
+      //   console.log(error);
       alert("Please fill");
     }
   };
 
   return (
     <div className="flex justify-center h-[100vh]">
-      <div className="flex flex-col items-center border border-black w-[60vw] h-[50vh]">
+      <div className="flex flex-col items-center border border-black w-[60vw] h-[60vh]">
         <div className="flex flex-col justify-center items-center">
           <div className="text-red-900 font-semibold text-3xl">Payment</div>
           <div className="p-2">Please fill more information.</div>
@@ -126,7 +130,7 @@ export default function Payment() {
               isInvalid={error.code}
             />
           </div>
-          <hr/>
+          <hr />
           <div className="flex justify-center gap-4 pt-4">
             <button className="flex justify-evenly items-center bg-red-800 text-white font-semibold h-[38px] w-[135px] rounded-lg">
               <Image src="/check.svg" width={32} height={32} /> Confirm
@@ -136,7 +140,8 @@ export default function Payment() {
                 className="flex justify-evenly items-center bg-black text-white font-semibold h-[38px] w-[135px] rounded-lg"
                 type="reset"
               >
-                <Image src="/cancel.svg" alt="x" width={24} height={24} /> Cancel
+                <Image src="/cancel.svg" alt="x" width={24} height={24} />{" "}
+                Cancel
               </button>
             </Link>
           </div>

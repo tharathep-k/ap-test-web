@@ -3,14 +3,14 @@ import * as paymentApi from "../../api/payment-api";
 
 const initialState = {
   error: null,
-  data: {},
+  allData: [],
 };
 
 export const createPayment = createAsyncThunk(
   "payment/createPayment",
   async (input) => {
     try {
-      console.log("-----",input);
+      console.log("-----", input);
       const res = await paymentApi.createPayment(input);
       //   return res.data;
     } catch (error) {
@@ -19,13 +19,26 @@ export const createPayment = createAsyncThunk(
   }
 );
 
+export const getAllData = createAsyncThunk("payment/getAllData", async (_) => {
+  try {
+    const res = await paymentApi.getAllData();
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 const paymentSlice = createSlice({
   name: "payment",
   initialState,
   extraReducers: (builder) => {
-    builder.addCase(createPayment.rejected, (state, action) => {
-      state.error = action.payload;
-    });
+    builder
+      .addCase(createPayment.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+      .addCase(getAllData.fulfilled, (state, action) => {
+        state.allData = action.payload;
+      });
   },
 });
 
