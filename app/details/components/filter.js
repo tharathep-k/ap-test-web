@@ -24,7 +24,7 @@ export default function Filter() {
   };
 
   useEffect(() => {
-    console.log("-----", input);
+    // console.log("-----", input);
     if (input.province !== "" || input.district !== "" || input.subdistrict !== "") {
       dispatch(getFilterData(input));
     } else {
