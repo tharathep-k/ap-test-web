@@ -33,7 +33,7 @@ const paymentSchema = Joi.object({
     }),
 }).unknown(true);
 
-export default function paymentRegister(input) {
+export default function paymentValidate(input) {
   const { error } = paymentSchema.validate(input, { abortEarly: false });
   if (error) {
     return error.details.reduce((acc, el) => {

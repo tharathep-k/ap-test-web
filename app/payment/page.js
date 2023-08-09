@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 
 import PaymentInput from "./components/paymentInput";
 import AddressOption from "./components/addressoption";
-import paymentRegister from "../validator/validate-payment";
+import paymentValidate from "../validator/validate-payment";
 import { createPayment } from "../redux/slice/payment-slice";
 
 const initialInput = {
@@ -38,7 +38,7 @@ export default function Payment() {
   const handleOnsubmit = (e) => {
     try {
       e.preventDefault();
-      const result = paymentRegister(input);
+      const result = paymentValidate(input);
       console.dir(result);
       if (result) {
         return setError(result);
