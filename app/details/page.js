@@ -27,12 +27,12 @@ export default function Details() {
 
   return (
     <div className="w-[100vw] h-[100vh] flex flex-col items-center">
-      <div className="border border-black ">
+      <div className="border border-black w-[60vw]">
         <div className="flex justify-between pb-2">
           <div className="text-2xl flex items-center" onClick={handleHomePage}>
             &larr;
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center py-1">
             <Filter />
           </div>
           <div className="text-2xl flex items-center invisible">&larr;</div>

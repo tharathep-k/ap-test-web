@@ -57,7 +57,7 @@ export default function Payment() {
 
   return (
     <div className="flex justify-center h-[100vh]">
-      <div className="flex flex-col items-center border border-black w-[60vw] h-[60vh]">
+      <div className="flex flex-col items-center border border-black w-[60vw] h-[50vh]">
         <div className="flex flex-col justify-center items-center">
           <div className="text-red-900 font-semibold text-3xl">Payment</div>
           <div className="p-2">Please fill more information.</div>

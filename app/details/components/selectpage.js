@@ -14,7 +14,7 @@ export default function SelectPage({ pageAt, setPageAt, filterData }) {
   };
 
   return (
-    <div className="w-[60vh] flex flex-col items-center pr-5 border border-t-gray-400">
+    <div className="w-[60vw] flex flex-col items-center pr-5 border border-t-gray-400">
       <div className="flex gap-2 mr-5 items-center">
         <div>
           <button

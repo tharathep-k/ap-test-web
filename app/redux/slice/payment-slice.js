@@ -34,7 +34,7 @@ export const getFilterData = createAsyncThunk(
   "payment/getFilterData",
   async (input) => {
     try {
-      // console.log(input);
+      console.log(input);
       const res = await paymentApi.getFilterData(input);
       // console.log(res.data);
       return res.data;

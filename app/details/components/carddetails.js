@@ -1,7 +1,7 @@
 export default function CardDetails({ data }) {
   return (
     <>
-        <div className="border border-black w-[50vh] h-[10rem] flex flex-col gap-2 px-1 rounded-lg">
+        <div className="border border-black w-[48vw] h-[10rem] flex flex-col gap-2 px-1 rounded-lg">
           PaymentId: {data.id}
           <br />
           <div className="grid grid-cols-6">

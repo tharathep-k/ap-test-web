@@ -16,7 +16,7 @@ export default function PaymentShow({ pageAt, filterData }) {
   const job = showAtPage.map((el) => <CardDetails data={el} key={el.id} />);
 
   return (
-    <div className="w-[60vh] flex flex-col gap-1 items-center pb-4">
+    <div className="w-[60vw] flex flex-col gap-1 items-center pb-4">
       {job}
     </div>
   );
